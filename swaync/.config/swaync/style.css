@@ -1,0 +1,301 @@
+/* -----------------------------------------------------------------------------
+ * VARIABLES (Matching your Waybar)
+ * ----------------------------------------------------------------------------- */
+@define-color bg-dark #121212;
+@define-color bg-secondary #1c1c1c;
+@define-color text-main #e0def4;
+@define-color text-dim #909090;
+
+@define-color accent-yellow #e0af68;
+@define-color accent-orange #ff9e64;
+@define-color accent-blue #7aa2f7;
+@define-color urgent-red #f7768e;
+
+/* -----------------------------------------------------------------------------
+ * CONTROL CENTER (The Main Panel)
+ * ----------------------------------------------------------------------------- */
+.control-center {
+    background-color: rgba(18, 18, 18, 0.85);
+    /* Dark Glassmorphism */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: @text-main;
+    padding: 12px;
+}
+
+/* -----------------------------------------------------------------------------
+ * THE MEDIA PLAYER (Removing the ugly box)
+ * ----------------------------------------------------------------------------- */
+.widget-mpris {
+    background-color: transparent;
+    /* Removes the dark box */
+    padding: 0;
+    margin-bottom: 12px;
+    border: none;
+}
+
+.widget-mpris-player {
+    border-radius: 16px;
+    padding: 16px;
+    /* SwayNC automatically uses the blurred album art as the background here! */
+}
+
+
+/* Target the play/pause/skip buttons */
+.widget-mpris-player>box>button {
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+.widget-mpris-player>box>button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: @accent-yellow;
+}
+
+
+
+/* -----------------------------------------------------------------------------
+ * SLIDERS (Fixing Colors and Icons)
+ * ----------------------------------------------------------------------------- */
+/* -----------------------------------------------------------------------------
+ * SLIDERS (Fixing Colors and Icons properly)
+ * ----------------------------------------------------------------------------- */
+.widget-volume,
+.widget-backlight {
+    background-color: @bg-secondary;
+    border-radius: 16px;
+    padding: 8px 16px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: @text-main;
+}
+
+/* Base slider track */
+scale trough {
+    background-color: @bg-dark;
+    border-radius: 50px;
+    min-height: 12px;
+}
+
+/* The filled part of the slider */
+scale highlight {
+    border-radius: 50px;
+}
+
+/* Apply specific colors */
+.widget-volume scale highlight {
+    background-color: @accent-blue;
+}
+
+.widget-backlight scale highlight {
+    background-color: @accent-orange;
+}
+
+/* Color the labels (the icons we defined in config.json) */
+.widget-volume>box>label {
+    color: @accent-blue;
+    font-size: 1.2rem;
+}
+
+.widget-backlight>box>label {
+    color: @accent-orange;
+    font-size: 1.2rem;
+}
+
+
+.button-grid>box>button {
+    color: brown;
+}
+
+
+/* Path: ~/.config/swaync/style.css */
+
+/* All inactive buttons */
+.widget-buttons-grid>flowbox>flowboxchild>button {
+    background-color: @bg-secondary;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: @text-main;
+}
+
+/* Specific styling for when a button is toggled ON (if supported by your script) */
+/* Or generally styling the icons individually */
+.widget-buttons-grid>flowbox>flowboxchild>button label {
+    font-size: 16px;
+}
+
+/* Example: Setting a hover color to match your orange accent */
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+    background-color: rgba(255, 158, 100, 0.2);
+    /* Muted accent-orange */
+    color: @accent-orange;
+}
+
+
+
+/* Style for the Brightness Slider Area */
+.widget-backlight {
+    background: rgba(28, 28, 28, 0.6);
+    /* Translucent dark */
+    border-radius: 16px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Glass edge */
+}
+
+/* Styling the specific Brightness Icon */
+.widget-backlight label {
+    color: @accent-orange;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+
+.widget-buttons-grid {
+    background-color: transparent;
+    /* Makes the grid blend into the panel */
+    margin: 8px 0;
+}
+
+.widget-buttons-grid>flowbox {
+    padding: 4px;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * NOTIFICATIONS (The Tan Cards from Figma)
+ * ----------------------------------------------------------------------------- */
+.notification {
+    background-color: @accent-yellow;
+    /* The warm tan from your design */
+    border-radius: 16px;
+    margin-top: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Contrast adjustment for text on the tan cards */
+
+/* This targets the card itself */
+
+
+.notification .app-name {
+    color: aliceblue;
+    font-weight: 800;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+}
+
+
+.notification:hover {
+    background-color: red;
+}
+
+.notification .summary,
+.notification .body {
+    color: whitesmoke;
+    /* Dark text for readability on the tan background */
+    font-weight: 500;
+}
+
+/* The close button on notifications */
+.notification-action {
+    color: @bg-dark;
+    background-color: transparent;
+}
+
+
+.notification-action:hover {
+    background-color: blue;
+}
+
+.notification .time {
+    font-size: 12px;
+    /* Make it smaller or larger here */
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.859);
+    margin-right: 5px;
+}
+
+/* We use the parent class and the state to gain higher priority */
+.control-center .notification:hover {
+    background-color: #ffb86c;
+    /* Or your preferred hover color */
+}
+
+/* If that still fails, target the internal event box */
+.control-center .notification-content:hover {
+    background-color: #ffb86c;
+}
+
+
+
+/* Target the background container specifically to override the grey/black hover */
+.notification-row .notification-background:hover {
+    background-color: #ffb86c;
+    /* Your lighter hover tan */
+}
+
+/* Ensure the inner notification also changes/stays tan on hover */
+.notification-row .notification-background .notification:hover {
+    background-color: transparent;
+}
+
+/* Summary (The Bold Title) */
+
+.summary {
+    font-weight: 800;
+    font-size: 1rem;
+    color: aliceblue;
+    margin-bottom: 2px;
+}
+
+/* Body (The Message Text) */
+.body {
+    font-size: 0.85rem;
+    color: whitesmoke;
+}
+
+/* The Timestamp (Now / 1m ago) */
+.time {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Summary (The Bold Title) */
+.summary {
+    font-weight: 800;
+    font-size: 1rem;
+    color: aliceblue;
+    margin-bottom: 2px;
+}
+
+/* Body (The Message Text) */
+.body {
+    font-size: 0.85rem;
+    color: whitesmoke;
+}
+
+/* The Timestamp (Now / 1m ago) */
+.time {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* Body (The Message Text) */
+.body {
+    font-size: 0.85rem;
+    color: whitesmoke;
+}
+
+/* The Timestamp (Now / 1m ago) */
+.time {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}

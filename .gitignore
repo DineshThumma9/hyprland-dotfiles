@@ -1,0 +1,33 @@
+# Rofi - exclude all the extra launcher/powermenu styles
+rofi/.config/rofi/launchers/
+rofi/.config/rofi/powermenu/
+rofi/.config/rofi/applets/
+rofi/.config/rofi/images/
+rofi/.config/rofi/colors/
+rofi/.config/rofi/scripts/
+
+# Keep only essential rofi configs by not ignoring them explicitly
+!rofi/.config/rofi/config.rasi
+!rofi/.config/rofi/*.rasi
+
+# nwg-look config (already in untracked, but document specific files if needed later)
+
+# Temporary/auto-generated files
+*.save
+.current_theme
+*current.conf
+*current-theme.conf
+
+# Cache and state files
+*.cache
+*.log
+
+# Backup files
+*~
+*.bak
+*.backup
+
+# OS specific
+.DS_Store
+Thumbs.db
+

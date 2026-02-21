@@ -1,0 +1,186 @@
+/* -----------------------------------------------------------------------------
+ * VARIABLES
+ * ----------------------------------------------------------------------------- */
+@define-color bg-dark #121212;
+@define-color bg-secondary #1c1c1c;
+@define-color text-main #e0def4;
+@define-color text-dim #909090;
+
+/* Zenitsu Palette */
+@define-color accent-yellow #e0af68; /* Golden Yellow */
+@define-color accent-orange #ff9e64; /* Orange */
+@define-color accent-blue #7aa2f7;   /* Lightning Blue */
+@define-color accent-purple #bb9af7;
+@define-color urgent-red #f7768e;
+
+/* -----------------------------------------------------------------------------
+ * GLOBAL RESET
+ * ----------------------------------------------------------------------------- */
+* {
+    font-family: 'Ubuntu Nerd Font Propo', 'Font Awesome 6 Free', monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-weight: 600; /* Slightly bolder for readability */
+}
+
+/* -----------------------------------------------------------------------------
+ * MAIN BAR
+ * ----------------------------------------------------------------------------- */
+window#waybar {
+    background-color: rgba(18, 18, 18, 0); /* Glass effect */
+    color: @text-main;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* -----------------------------------------------------------------------------
+ * TOOLTIPS
+ * ----------------------------------------------------------------------------- */
+tooltip {
+    background-color: @bg-secondary;
+    border: 1px solid @accent-blue;
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: @text-main;
+    padding: 6px;
+}
+
+/* -----------------------------------------------------------------------------
+ * WORKSPACES
+ * ----------------------------------------------------------------------------- */
+#workspaces {
+    background-color: @bg-dark;
+    margin: 4px 4px 4px 12px; /* Balanced margins */
+    padding: 2px 2px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border */
+}
+
+#workspaces button {
+    padding: 0 5px;
+    margin: 0 4px;
+    border-radius: 50px;
+    color: @text-dim;
+    background-color: transparent;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68); /* Bouncy transition */
+    min-width: 20px;
+}
+
+/* Active: The "Zenitsu" Yellow Mode */
+#workspaces button.active {
+    color: @bg-dark;
+    background-color: @accent-yellow;
+    min-width: 40px; /* Expands smoothly */
+    background-size: 400% 400%;
+}
+
+/* Hover: Subtle white glow */
+#workspaces button:hover {
+    color: @text-main;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Urgent: Red alert */
+#workspaces button.urgent {
+    background-color: @urgent-red;
+    color: @bg-dark;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* -----------------------------------------------------------------------------
+ * MODULES (Right Side)
+ * ----------------------------------------------------------------------------- */
+
+/* Group/right container — this is the wrapper Waybar creates for group/right */
+#group-right {
+    background-color: @bg-dark;
+    border-radius: 50px;
+    margin: 4px 12px 4px 4px;
+    padding: 0 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Common styles for the "Pills" */
+#clock, 
+#battery, 
+#network, 
+#pulseaudio, 
+#window, 
+#tray, 
+#bluetooth,
+#custom-power,
+#custom-media,
+#custom-notification {
+    background-color: @bg-secondary;
+    padding: 4px 14px;
+    margin: 4px 4px 4px 6px; /* Tighter spacing */
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0); /* Invisible border prevents layout shifts */
+}
+
+/* Specific Coloring */
+
+#clock {
+    color: @accent-blue;
+    background-color: rgba(40, 40, 50, 0.8);
+}
+
+#battery {
+    color: @accent-orange;
+}
+
+#battery.critical {
+    color: @urgent-red;
+    border: 1px solid @urgent-red; /* Add border for visibility */
+}
+
+#bluetooth {
+    color: #faf200; /* Nordic Blue */
+    /* color: #eceff4; */
+    font-size: 16px;
+}
+
+
+#custom-power{
+    color:rgba(212, 96, 96, 0.856);
+}
+
+#bluetooth.connected {
+    color: #24eb77; /* Nordic Blue */
+}
+
+#network {
+    color: @accent-blue;
+}
+
+#pulseaudio {
+    color: @accent-purple;
+}
+
+#custom-notification {
+    color: @accent-yellow;
+    margin: 0 12px 0 0;
+}
+
+#custom-media {
+    color: @accent-purple;
+    background-color: rgba(120, 80, 200, 0.8);
+}
+
+/* -----------------------------------------------------------------------------
+ * ANIMATIONS
+ * ----------------------------------------------------------------------------- */
+@keyframes blink {
+    to {
+        background-color: @text-main;
+        color: @bg-dark;
+    }
+}

@@ -1,0 +1,235 @@
+/* -----------------------------------------------------------------------------
+ * VARIABLES
+ * ----------------------------------------------------------------------------- */
+@define-color bg-dark #121212;
+@define-color bg-secondary #1c1c1c;
+@define-color text-main #e0def4;
+@define-color text-dim #909090;
+
+/* Zenitsu Palette */
+@define-color accent-yellow #e0af68; /* Golden Yellow */
+@define-color accent-orange #ff9e64; /* Orange */
+@define-color accent-blue #7aa2f7;   /* Lightning Blue */
+@define-color accent-purple #bb9af7;
+@define-color urgent-red #f7768e;
+@define-color success-green #24eb77; /* For connected states */
+
+/* -----------------------------------------------------------------------------
+ * GLOBAL RESET
+ * ----------------------------------------------------------------------------- */
+* {
+    font-family: 'Ubuntu Nerd Font Propo', 'Font Awesome 6 Free', monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+ * MAIN BAR
+ * ----------------------------------------------------------------------------- */
+window#waybar {
+    background-color: rgba(18, 18, 18, 0); /* Glass effect */
+    color: @text-main;
+    transition-property: background-color;
+    transition-duration: .5s;
+    
+
+}
+
+/* -----------------------------------------------------------------------------
+ * TOOLTIPS
+ * ----------------------------------------------------------------------------- */
+tooltip {
+    background-color: @bg-secondary;
+    border: 1px solid @accent-blue;
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: @text-main;
+    padding: 6px;
+}
+
+/* -----------------------------------------------------------------------------
+ * WORKSPACES (Left Side Pill)
+ * ----------------------------------------------------------------------------- */
+#workspaces {
+    background-color: @bg-dark;
+    margin: 4px 4px 4px 12px; 
+    padding: 2px 2px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#workspaces button {
+    padding: 0 5px;
+    margin: 0 4px;
+    border-radius: 50px;
+    color: @text-dim;
+    background-color: transparent;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68);
+    min-width: 20px;
+}
+
+#workspaces button.active {
+    color: @bg-dark;
+    background-color: @accent-yellow;
+    min-width: 40px; 
+}
+
+#workspaces button:hover {
+    color: @text-main;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.urgent {
+    background-color: @urgent-red;
+    color: @bg-dark;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* -----------------------------------------------------------------------------
+ * MAIN CONTAINERS (The "Pills")
+ * ----------------------------------------------------------------------------- */
+/* This groups all your right-side modules into one sleek background */
+.modules-right {
+    background-color: @bg-dark;
+    border-radius: 50px;
+    margin: 4px 12px 4px 4px; 
+    padding: 2px 8px; /* Breathing room inside the pill */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Same for the middle if you have a clock or window title there */
+.modules-center {
+    background-color: @bg-dark;
+    border-radius: 50px;
+    margin: 4px;
+    padding: 2px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* -----------------------------------------------------------------------------
+ * INDIVIDUAL MODULES (Inside the Pills)
+ * ----------------------------------------------------------------------------- */
+/* Remove individual backgrounds so they blend into the parent pill */
+#clock, 
+#battery, 
+#network, 
+#pulseaudio, 
+#window, 
+#tray, 
+#bluetooth,
+#custom-power,
+#custom-notification {
+    background-color: transparent; 
+    border-radius: 50px; /* Kept for smooth hover effects */
+    margin: 0;           /* NO margins, prevents the "scattered" look */
+    padding: 0 8px;      /* Spacing between the icons */
+}
+
+/* Give hover states a subtle highlight inside the pill */
+#battery:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#custom-power:hover,
+#custom-notification:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* -----------------------------------------------------------------------------
+ * MODULE COLORS (Your specific color mappings)
+ * ----------------------------------------------------------------------------- */
+#clock {
+    color: @accent-blue;
+}
+
+#battery {
+    color: @accent-orange;
+}
+
+#battery.critical {
+    color: @urgent-red;
+    background-color: rgba(247, 118, 142, 0.1); /* Subtle red bg pulse */
+}
+
+#bluetooth {
+    color: #faf200; /* Yellow when disconnected/idle */
+    font-size: 16px;
+}
+
+#bluetooth.connected {
+    color: @success-green;
+}
+
+#network {
+    color: @accent-blue;
+}
+
+#pulseaudio {
+    color: @accent-purple;
+}
+
+#custom-power {
+    color: rgba(212, 96, 96, 0.856);
+}
+
+#custom-notification {
+    color: @accent-yellow;
+}
+
+
+#custom-network-icon {
+    color: rgb(66, 57, 190);
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+#custom-network-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+
+#custom-bluetooth-icon {
+    color:rgb(73, 210, 60);
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+
+#custom-bluetooth-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * STANDALONE MODULES (Outside the main right-side pill)
+ * ----------------------------------------------------------------------------- */
+/* If you want the media player to be its own floating bubble */
+#custom-media {
+    color: @text-main;
+    background-color: @bg-dark;
+    border-radius: 15px;
+    padding: 0 10px;
+    margin: 4px 6px; /* Safe to use margin here since it's standalone */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* -----------------------------------------------------------------------------
+ * ANIMATIONS
+ * ----------------------------------------------------------------------------- */
+@keyframes blink {
+    to {
+        background-color: @text-main;
+        color: @bg-dark;
+    }
+}

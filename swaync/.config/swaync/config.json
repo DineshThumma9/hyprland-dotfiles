@@ -1,0 +1,63 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "cssPriority": "application",
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 10,
+  "control-center-width": 380,
+  "control-center-height": 860, 
+
+  "notification-2way-close": true,
+  "notification-drop-shadow": false,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "script-transform": true,
+"widgets": [
+    "mpris",
+    "title",
+    "buttons-grid",
+    "volume",
+    "backlight",
+    "dnd",
+    "notifications" 
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear All"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 16
+    },
+    "volume": {
+      "label": ""
+    },
+   "backlight": {
+      "label": "",
+      "device": "amdgpu_bl1"
+    },
+    "buttons-grid": {
+      "actions": [
+        { "label": " ", "command": "~/.config/hypr/scripts/rofi-wifi-menu.sh" },
+        { "label": "", "command": "~/.config/hypr/scripts/rofi-bluetooth.sh" },
+        { "label": "", "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle" },
+        { "label": "", "command": "" }, 
+        { "label": "", "command": "" }, 
+        { "label": "󰂺", "command": "" }  
+      ]
+    }
+  }
+  }

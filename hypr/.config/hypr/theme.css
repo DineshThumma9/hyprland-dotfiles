@@ -1,0 +1,33 @@
+/* 
+ * Hyprland Theme System
+ * 
+ * Themes are now managed in: ~/.config/hypr/themes/
+ * 
+ * Available themes:
+ *   - catppuccin-mocha.conf
+ *   - gruvbox-dark.conf
+ *   - nord.conf
+ *   - tokyo-night.conf
+ *   - dracula.conf
+ * 
+ * The active theme is: ~/.config/hypr/themes/current.conf
+ * 
+ * Usage:
+ *   SUPER + T           - Open theme selector menu
+ *   SUPER + SHIFT + T   - Cycle to next theme
+ * 
+ * Command line:
+ *   ~/.config/hypr/scripts/theme-switcher.sh menu    - Show menu
+ *   ~/.config/hypr/scripts/theme-switcher.sh cycle   - Cycle themes
+ *   ~/.config/hypr/scripts/theme-switcher.sh list    - List all themes
+ *   ~/.config/hypr/scripts/theme-switcher.sh <name>  - Apply specific theme
+ *
+ * Theme variables available:
+ *   $border_active, $border_inactive
+ *   $bg_primary, $bg_secondary, $bg_tertiary
+ *   $text_primary, $text_secondary, $text_tertiary
+ *   $accent_primary, $accent_secondary
+ *   $accent_error, $accent_warning, $accent_success
+ *   $shadow_color, $bar_bg, $bar_fg
+ *   $rounding, $gaps_in, $gaps_out, $border_size
+ */
