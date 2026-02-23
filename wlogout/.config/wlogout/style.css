@@ -1,3 +1,15 @@
+
+
+
+/* -----------------------------------------------------------------------------
+ * VARIABLES
+ * ----------------------------------------------------------------------------- */
+
+/* @import "colors.css"; */
+@import url("/home/dinesh/.cache/matugen-colors-wlogout.css");
+
+
+
 * {
     background-image: none;
     font-family: "Ubuntu Nerd Font Propo", "Font Awesome 6 Free";
@@ -6,14 +18,13 @@
 }
 
 window {
-    background-color: rgba(30, 30, 46, 0.3);
+    background-color: transparent;
     border-radius: 20px;
-
 }
 
 button {
-    color: #d8dee9;
-    background-color: rgba(59, 66, 82, 0.8);
+    color: @text-main;
+    background-color: @bg-secondary;
     border-style: solid;
     border-width: 2px;
     background-repeat: no-repeat;
@@ -25,84 +36,81 @@ button {
     padding-bottom: 60px;
     padding-right: 30px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 6px 15px #e6a30799;
     outline-style: none;
 }
 
 button:hover {
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8);
-    border-color: rgba(136, 192, 208, 0.8);
+    border-color: @border-default;
 }
 
 button:focus {
-    background-color: rgba(76, 86, 106, 0.9);
-    box-shadow: 0 0 0 3px rgba(136, 192, 208, 0.5);
+    background-color: @focus-bg;
 }
 
 /* --- Specific Button Colors and Styling --- */
 
 #lock {
-    color: #ebcb8b;
-    border-color: #ebcb8b;
-    background-color: rgba(235, 203, 139, 0.1);
+    color: @action-lock;
+    border-color: @action-lock;
+    background-color: alpha(@action-lock, 0.1);
 }
 
 #lock:hover {
-    color: #1e1e2e;
-    background-color: rgba(235, 203, 139, 1);
+    color: @hover-text;
+    background-color: @action-lock;
 }
 
 #logout {
-    color: #81a1c1;
-    border-color: #81a1c1;
-    background-color: rgba(129, 161, 193, 0.1);
+    color: @action-logout;
+    border-color: @action-logout;
+    background-color: alpha(@action-logout, 0.1);
 }
 
 #logout:hover {
-    color: #1e1e2e;
-    background-color: rgba(129, 161, 193, 1);
+    color: @hover-text;
+    background-color: @action-logout;
 }
 
 #suspend {
-    color: #b48ead;
-    border-color: #b48ead;
-    background-color: rgba(180, 142, 173, 0.1);
+    color: @action-suspend;
+    border-color: @action-suspend;
+    background-color: alpha(@action-suspend, 0.1);
 }
 
 #suspend:hover {
-    color: #1e1e2e;
-    background-color: rgba(180, 142, 173, 1);
+    color: @hover-text;
+    background-color: @action-suspend;
 }
 
 #hibernate {
-    color: #b48ead;
-    border-color: #b48ead;
-    background-color: rgba(180, 142, 173, 0.1);
+    color: @action-hibernate;
+    border-color: @action-hibernate;
+    background-color: alpha(@action-hibernate, 0.1);
 }
 
 #hibernate:hover {
-    color: #1e1e2e;
-    background-color: rgba(180, 142, 173, 1);
+    color: @hover-text;
+    background-color: @action-hibernate;
 }
 
 #shutdown {
-    color: #bf616a;
-    border-color: #bf616a;
-    background-color: rgba(191, 97, 106, 0.1);
+    color: @action-shutdown;
+    border-color: @action-shutdown;
+    background-color: alpha(@action-shutdown, 0.1);
 }
 
 #shutdown:hover {
-    color: #1e1e2e;
-    background-color: rgba(191, 97, 106, 1);
+    color: @hover-text;
+    background-color: @action-shutdown;
 }
 
 #reboot {
-    color: #a3be8c;
-    border-color: #a3be8c;
-    background-color: rgba(163, 190, 140, 0.1);
+    color: @action-reboot;
+    border-color: @action-reboot;
+    background-color: alpha(@action-reboot, 0.1);
 }
 
 #reboot:hover {
-    color: #1e1e2e;
-    background-color: rgba(163, 190, 140, 1);
+    color: @hover-text;
+    background-color: @action-reboot;
 }

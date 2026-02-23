@@ -1,9 +1,2 @@
-* {
-    /* Nordic Color Palette */
-    background:     #2e3440;
-    background-alt: #3b4252;
-    foreground:     #d8dee9;
-    selected:       #81a1c1;
-    active:         #a3be8c;
-    urgent:         #bf616a;
-}
+/* Import matugen generated colors */
+@import "~/.cache/matugen-colors-rofi.rasi"

@@ -33,7 +33,7 @@ for line in "${lines[@]}"; do
     else
         # It's normal text. Truncate it to look clean, and hide the ID number!
         display_text=$(echo "$content" | cut -c 1-80)
-        echo -en "${line}\0display\x1f ${display_text}\n"
+        echo -en "${line}\0display\x1f${display_text}\n"
     fi
 done | rofi -dmenu -theme "$ROFI_THEME" -p "Clipboard" -show-icons -theme-str 'listview {columns: 1;}' | cliphist decode | wl-copy
 

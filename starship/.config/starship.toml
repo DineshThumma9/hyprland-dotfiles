@@ -29,7 +29,8 @@ $time\
 [ ](fg:color_bg1)\
 $line_break$character"""
 
-palette = 'gruvbox_dark'
+# Matugen will inject [palettes.matugen] here via post_hook
+palette = 'matugen'
 
 [palettes.gruvbox_dark]
 color_fg0 = '#fbf1c7'
@@ -61,7 +62,6 @@ Fedora = "󰣛"
 Alpine = ""
 Amazon = ""
 Android = ""
-AOSC = ""
 Arch = "󰣇"
 Artix = "󰣇"
 EndeavourOS = ""

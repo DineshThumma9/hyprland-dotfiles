@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+ #!/usr/bin/env bash
 
 # ============================================================================
 # Theme Switcher - Unified theme management for Hyprland rice

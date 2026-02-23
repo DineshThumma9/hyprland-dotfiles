@@ -1,0 +1,32 @@
+/* -----------------------------------------------------------------------------
+ * MATUGEN GENERATED COLORS FOR SWAYNC
+ * This file is auto-generated. Do not edit manually.
+ * ----------------------------------------------------------------------------- */
+
+/* Background Colors */
+@define-color bg-dark #0f1512;
+@define-color bg-secondary #1b211e;
+
+/* Text Colors */
+@define-color text-main #dee4e0;
+@define-color text-dim #bfc9c3;
+@define-color text-light #00382b;
+
+/* Accent Colors */
+@define-color accent-yellow #a8cbe2;
+@define-color accent-orange #b2ccc1;
+@define-color accent-gold #87d6bc;
+@define-color accent-purple #005140;
+@define-color accent-blue #284b5e;
+
+/* State Colors */
+@define-color urgent-red #ffb4ab;
+@define-color success-green #a8cbe2;
+
+/* Utility Colors */
+@define-color border-color #3f4945;
+@define-color overlay-dark #000000;
+@define-color overlay-light #343b38;
+
+/* Derived Colors (with transparency) */
+@define-color accent-orange-dim #344c43;

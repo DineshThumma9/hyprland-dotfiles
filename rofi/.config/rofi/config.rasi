@@ -194,4 +194,7 @@ configuration {
 
 //@theme "/usr/share/rofi/themes/material.rasi"
 
-@theme "/usr/share/rofi/themes/DarkBlue.rasi"
+// Theme is now managed via theme.env pointing to matugen-theme.rasi
+// @theme "~/.cache/matugen-colors-rofi.rasi"
+
+//@theme "/usr/share/rofi/themes/DarkBlue.rasi"

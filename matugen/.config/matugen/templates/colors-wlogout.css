@@ -1,0 +1,31 @@
+/* -----------------------------------------------------------------------------
+ * MATUGEN GENERATED COLORS FOR WLOGOUT
+ * This file is auto-generated. Do not edit manually.
+ * ----------------------------------------------------------------------------- */
+
+/* Background Colors */
+@define-color bg-dark {{colors.surface.default.hex}};
+@define-color bg-secondary {{colors.surface_container.default.hex}};
+
+/* Text Colors */
+@define-color text-main {{colors.on_surface.default.hex}};
+@define-color text-dim {{colors.on_surface_variant.default.hex}};
+
+/* Action Button Colors */
+@define-color action-lock {{colors.tertiary.default.hex}};
+@define-color action-logout {{colors.primary.default.hex}};
+@define-color action-suspend {{colors.secondary.default.hex}};
+@define-color action-hibernate {{colors.secondary_container.default.hex}};
+@define-color action-shutdown {{colors.error.default.hex}};
+@define-color action-reboot {{colors.tertiary_container.default.hex}};
+
+/* Hover & Focus Colors */
+@define-color hover-bg {{colors.surface.default.hex}};
+@define-color hover-text {{colors.surface.default.hex}};
+@define-color focus-bg {{colors.surface_variant.default.hex}};
+@define-color focus-ring {{colors.primary.default.hex}};
+
+/* Utility Colors */
+@define-color border-default {{colors.outline.default.hex}};
+@define-color shadow-strong {{colors.shadow.default.hex}};
+@define-color shadow-soft {{colors.surface_bright.default.hex}};

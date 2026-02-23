@@ -1,0 +1,31 @@
+/* -----------------------------------------------------------------------------
+ * MATUGEN GENERATED COLORS FOR WLOGOUT
+ * This file is auto-generated. Do not edit manually.
+ * ----------------------------------------------------------------------------- */
+
+/* Background Colors */
+@define-color bg-dark #0f1512;
+@define-color bg-secondary #1b211e;
+
+/* Text Colors */
+@define-color text-main #dee4e0;
+@define-color text-dim #bfc9c3;
+
+/* Action Button Colors */
+@define-color action-lock #a8cbe2;
+@define-color action-logout #87d6bc;
+@define-color action-suspend #b2ccc1;
+@define-color action-hibernate #344c43;
+@define-color action-shutdown #ffb4ab;
+@define-color action-reboot #284b5e;
+
+/* Hover & Focus Colors */
+@define-color hover-bg #0f1512;
+@define-color hover-text #0f1512;
+@define-color focus-bg #3f4945;
+@define-color focus-ring #87d6bc;
+
+/* Utility Colors */
+@define-color border-default #89938e;
+@define-color shadow-strong #000000;
+@define-color shadow-soft #343b38;

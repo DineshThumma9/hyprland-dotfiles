@@ -1,0 +1,83 @@
+[config]
+image_path = "~/Downloads/Wallpapers/wallhaven-yq5ywl.jpg"
+
+[templates.waybar]
+input_path = "~/.config/matugen/templates/colors-waybar.css"
+output_path = "~/.cache/matugen-colors-waybar.css"
+
+
+[templates.hyprland]
+input_path = "~/.config/matugen/templates/colors-hyprland.conf"
+output_path = "~/.cache/matugen-colors-hyprland.conf"
+
+[templates.hyprlock]
+input_path = "~/.config/matugen/templates/colors-hyprland.conf"
+output_path = "~/.cache/matugen-colors-hyprlock.conf"
+
+[templates.rofi]
+input_path = "~/.config/matugen/templates/colors-rofi.conf"
+output_path = "~/.cache/matugen-colors-rofi.rasi"
+
+
+
+[templates.wlogout]
+input_path = "~/.config/matugen/templates/colors-wlogout.css"
+output_path = "~/.cache/matugen-colors-wlogout.css"
+
+
+[templates.kitty]
+input_path = "~/.config/matugen/templates/colors-kitty.conf"
+output_path = "~/.cache/matugen-colors-kitty.conf"
+post_hook = "kill -SIGUSR1 $(pgrep kitty) || true"
+
+[templates.swaync]
+input_path = "~/.config/matugen/templates/colors-swaync.css"
+output_path = "~/.cache/matugen-colors-swaync.css"
+post_hook = "swaync-client -rs"
+
+
+
+[templates.telegram]
+input_path = '~/.config/matugen/templates/telegram.tdesktop-theme'
+output_path = '~/.cache/matugen-colors-telegram.tdesktop-theme'
+
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/colors-gtk.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"'
+
+
+[templates.gtk4]
+input_path =  '~/.config/matugen/templates/colors-gtk.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+
+[templates.nvim]
+input_path = '~/.config/matugen/templates/colors-nvim.vim'
+output_path = '~/.config/nvim/colors/matugen.vim'
+post_hook = 'pkill -SIGUSR1 nvim || true'
+
+
+
+[templates.micro]
+input_path = '~/.config/matugen/templates/colors-micro.micro'
+output_path = '~/.config/micro/colorschemes/matugen.micro'
+
+[templates.starship]
+input_path = '~/.config/matugen/templates/colors-starship.toml'
+output_path = '~/.cache/matugen-colors-starship.toml'
+post_hook = '''
+STARSHIP_CONFIG="$HOME/.config/starship.toml"
+PALETTE_FILE="$HOME/.cache/matugen-colors-starship.toml"
+
+# Create temp file
+awk -v palette="$(cat "$PALETTE_FILE")" '
+/^# Matugen will inject/ { skip=1; next }
+/^\[palettes\.matugen\]/ { skip=1 }
+skip && /^color_yellow/ { skip=0; next }
+skip { next }
+/^\[palettes\.gruvbox_dark\]/ { print palette"\n" }
+{ print }
+' "$STARSHIP_CONFIG" > "$STARSHIP_CONFIG.tmp" && mv "$STARSHIP_CONFIG.tmp" "$STARSHIP_CONFIG"
+'''

@@ -1,24 +1,22 @@
-/* -----------------------------------------------------------------------------
- * VARIABLES (Matching your Waybar)
- * ----------------------------------------------------------------------------- */
-@define-color bg-dark #121212;
-@define-color bg-secondary #1c1c1c;
-@define-color text-main #e0def4;
-@define-color text-dim #909090;
 
-@define-color accent-yellow #e0af68;
-@define-color accent-orange #ff9e64;
-@define-color accent-blue #7aa2f7;
-@define-color urgent-red #f7768e;
+/* -----------------------------------------------------------------------------
+ * VARIABLES
+ * ----------------------------------------------------------------------------- */
+
+/* @import "col
+ors.css"; */
+@import url("/home/dinesh/.cache/matugen-colors-swaync.css");
+
 
 /* -----------------------------------------------------------------------------
  * CONTROL CENTER (The Main Panel)
  * ----------------------------------------------------------------------------- */
 .control-center {
-    background-color: rgba(18, 18, 18, 0.85);
+    background-color: alpha(@bg-dark, 0.70);
     /* Dark Glassmorphism */
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    
+    border: 1px solid @border-color;
     color: @text-main;
     padding: 12px;
 }
@@ -48,7 +46,7 @@
 }
 
 .widget-mpris-player>box>button:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: @border-color;
     color: @accent-yellow;
 }
 
@@ -66,7 +64,7 @@
     border-radius: 16px;
     padding: 8px 16px;
     margin-bottom: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid @border-color;
     color: @text-main;
 }
 
@@ -84,7 +82,7 @@ scale highlight {
 
 /* Apply specific colors */
 .widget-volume scale highlight {
-    background-color: @accent-blue;
+    background-color: @accent-orange;
 }
 
 .widget-backlight scale highlight {
@@ -93,7 +91,7 @@ scale highlight {
 
 /* Color the labels (the icons we defined in config.json) */
 .widget-volume>box>label {
-    color: @accent-blue;
+    color: @accent-orange;
     font-size: 1.2rem;
 }
 
@@ -104,7 +102,7 @@ scale highlight {
 
 
 .button-grid>box>button {
-    color: brown;
+    color: @text-main;
 }
 
 
@@ -113,7 +111,7 @@ scale highlight {
 /* All inactive buttons */
 .widget-buttons-grid>flowbox>flowboxchild>button {
     background-color: @bg-secondary;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid @border-color;
     color: @text-main;
 }
 
@@ -125,7 +123,7 @@ scale highlight {
 
 /* Example: Setting a hover color to match your orange accent */
 .widget-buttons-grid>flowbox>flowboxchild>button:hover {
-    background-color: rgba(255, 158, 100, 0.2);
+    background-color: @accent-orange-dim;
     /* Muted accent-orange */
     color: @accent-orange;
 }
@@ -134,11 +132,11 @@ scale highlight {
 
 /* Style for the Brightness Slider Area */
 .widget-backlight {
-    background: rgba(28, 28, 28, 0.6);
+    background: @bg-secondary;
     /* Translucent dark */
     border-radius: 16px;
     margin-bottom: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid @border-color;
     /* Glass edge */
 }
 
@@ -170,29 +168,29 @@ scale highlight {
     border-radius: 16px;
     margin-top: 8px;
     padding: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px @overlay-dark;
 }
 
-/* Contrast adjustment for text on the tan cards */
+/* Hover state for notifications */
+.notification:hover {
+    background-color: @accent-orange-dim;
+    /* Slightly brighter surface on hover */
+}
 
-/* This targets the card itself */
 
 
 .notification .app-name {
-    color: aliceblue;
+    color: @text-main;
     font-weight: 800;
     padding-bottom: 3px;
     margin-bottom: 3px;
 }
 
 
-.notification:hover {
-    background-color: red;
-}
 
 .notification .summary,
 .notification .body {
-    color: whitesmoke;
+    color: @text-light;
     /* Dark text for readability on the tan background */
     font-weight: 500;
 }
@@ -203,56 +201,24 @@ scale highlight {
     background-color: transparent;
 }
 
-
 .notification-action:hover {
-    background-color: blue;
+    background-color: @accent-orange-dim;
+    color: @accent-orange;
 }
 
-.notification .time {
-    font-size: 12px;
-    /* Make it smaller or larger here */
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.859);
-    margin-right: 5px;
-}
-
-/* We use the parent class and the state to gain higher priority */
-.control-center .notification:hover {
-    background-color: #ffb86c;
-    /* Or your preferred hover color */
-}
-
-/* If that still fails, target the internal event box */
-.control-center .notification-content:hover {
-    background-color: #ffb86c;
-}
-
-
-
-/* Target the background container specifically to override the grey/black hover */
-.notification-row .notification-background:hover {
-    background-color: #ffb86c;
-    /* Your lighter hover tan */
-}
-
-/* Ensure the inner notification also changes/stays tan on hover */
-.notification-row .notification-background .notification:hover {
-    background-color: transparent;
-}
 
 /* Summary (The Bold Title) */
-
 .summary {
     font-weight: 800;
     font-size: 1rem;
-    color: aliceblue;
+    color: @text-main;
     margin-bottom: 2px;
 }
 
 /* Body (The Message Text) */
 .body {
     font-size: 0.85rem;
-    color: whitesmoke;
+    color: @text-light;
 }
 
 /* The Timestamp (Now / 1m ago) */
@@ -260,42 +226,9 @@ scale highlight {
     font-size: 0.75rem;
     font-weight: 600;
     margin-right: 10px;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* Summary (The Bold Title) */
-.summary {
-    font-weight: 800;
-    font-size: 1rem;
-    color: aliceblue;
-    margin-bottom: 2px;
-}
-
-/* Body (The Message Text) */
-.body {
-    font-size: 0.85rem;
-    color: whitesmoke;
-}
-
-/* The Timestamp (Now / 1m ago) */
-.time {
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-right: 10px;
-    color: rgba(255, 255, 255, 0.8);
+    color: @border-color;
 }
 
 
-/* Body (The Message Text) */
-.body {
-    font-size: 0.85rem;
-    color: whitesmoke;
-}
 
-/* The Timestamp (Now / 1m ago) */
-.time {
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-right: 10px;
-    color: rgba(255, 255, 255, 0.8);
-}
+

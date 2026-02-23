@@ -1,0 +1,71 @@
+@import "~/.cache/matugen-colors-rofi.rasi"
+
+* {
+    bg-darker: rgba(0, 0, 0, 0.8);
+    bg-hover: @surface-container-high;
+    bg-selected: @primary-container;
+}
+
+configuration {
+    modi: "dmenu";
+    show-icons: true;
+    icon-theme: "Papirus";
+}
+
+window {
+    width: 80%;
+    height: 300px;
+    location: center;
+    anchor: center;
+    border: 2px;
+    border-color: @primary;
+    background-color: @bg-darker;
+    transparency: "real";
+}
+
+listview {
+    layout: horizontal;
+    spacing: 20px;
+    padding: 20px;
+    fixed-height: true;
+    background-color: transparent;
+}
+
+element {
+    orientation: vertical;
+    padding: 10px;
+    width: 200px;
+    border-radius: 12px;
+    background-color: transparent;
+    border: 0px;
+}
+
+element normal {
+    background-color: transparent;
+    text-color: @on-surface;
+}
+
+element selected {
+    background-color: @bg-hover;
+    border: 2px;
+    border-color: @primary;
+    text-color: @on-surface;
+}
+
+element active {
+    background-color: @bg-selected;
+    border: 3px;
+    border-color: @primary;
+    text-color: @on-primary-container;
+}
+
+element-icon {
+    size: 150px;
+    cursor: pointer;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    text-color: inherit;
+}

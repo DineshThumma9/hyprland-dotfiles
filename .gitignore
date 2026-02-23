@@ -5,6 +5,8 @@ rofi/.config/rofi/applets/
 rofi/.config/rofi/images/
 rofi/.config/rofi/colors/
 rofi/.config/rofi/scripts/
+ags/
+nwg-dock-hyprland/
 
 # Keep only essential rofi configs by not ignoring them explicitly
 !rofi/.config/rofi/config.rasi
